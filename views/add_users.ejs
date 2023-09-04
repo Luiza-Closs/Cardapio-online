@@ -1,0 +1,112 @@
+<%- include('layout/header') %>
+
+<!-- Section: Design Block -->
+<section class="text-center">
+  <!-- Background image -->
+  <div
+    class="p-5 bg-image"
+    style="
+      background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+      height: 150px;
+    "
+  ></div>
+  <!-- Background image -->
+
+  <div
+    class="card mx-4 mx-md-5 shadow-5-strong"
+    style="
+      margin-top: -100px;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(30px);
+    "
+  >
+    <div class="card-body py-5 px-md-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Cadastrar</h2>
+          <form
+            action="/add"
+            method="post"
+            id="add-form"
+            enctype="multipart/form-data"
+          >
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="dateIn"
+                  />
+                  <label class="form-label" for="dateIn"
+                    >Data de requisição</label
+                  >
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="dateOut"
+                  />
+                  <label class="form-label" for="dateOut"
+                    >Data limite de conclusão</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+              />
+              <label class="form-label" for="name">Nome cliente</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                class="form-control"
+                name="descricao"
+              />
+              <label class="form-label" for="descricao">Descrição</label>
+            </div>
+
+            <!-- Phone input -->
+            <div class="form-outline mb-4">
+              <input
+                type="tel"
+                class="form-control"
+                name="phone"
+              />
+              <label class="form-label" for="phone">Telefone</label>
+            </div>
+
+            <!-- Image input -->
+            <div class="form-outline mb-4">
+              <input
+                type="file"
+                class="form-control form-control-lg"
+                name="image"
+              />
+              <label class="form-label" for="image">Imagem</label>
+            </div>
+            <!-- Submit button -->
+            <button type="submit" name="submit" value="Add User" class="btn btn-primary btn-block mb-4">
+              Cadastrar Serviço
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+<%- include('layout/footer') %>
