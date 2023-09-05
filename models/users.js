@@ -7,6 +7,14 @@ const userSchema = new mongoose.Schema({
   image: { type: String },
   dataIn: { type: String },
   dataOut: { type: String },
+  status: { type: String },
+
+  /* Não está sendo usada 
+  
+  email: { type: String },
+  senha: { type: String },
+
+  */
 });
 
 module.exports = mongoose.model("User", userSchema);

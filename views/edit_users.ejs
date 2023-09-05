@@ -1,6 +1,8 @@
 <%- include('layout/header') %>
 
+<!-- Section: Design Block -->
 <section class="text-center">
+  <!-- Background image -->
   <div
     class="p-5 bg-image"
     style="
@@ -8,6 +10,7 @@
       height: 150px;
     "
   ></div>
+  <!-- Background image -->
 
   <div
     class="card mx-4 mx-md-5 shadow-5-strong"
@@ -20,17 +23,18 @@
     <div class="card-body py-5 px-md-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Cadastrar</h2>
+          <h2 class="fw-bold mb-5">Editar Serviço do <%= user.nome %></h2>
           <form
-            action="/add"
+            action="/update/<%= user._id %>"
             method="post"
             id="add-form"
             enctype="multipart/form-data"
           >
+            <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                  <input type="date" class="form-control" name="dateIn" />
+                  <input type="text" class="form-control" name="dateIn" value="<%= user.dataIn %>" />
                   <label class="form-label" for="dateIn"
                     >Data de requisição</label
                   >
@@ -38,86 +42,65 @@
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                  <input type="date" class="form-control" name="dateOut" />
+                  <input type="date" class="form-control" name="dateOut" value="<%= user.dataOut %>" />
                   <label class="form-label" for="dateOut"
                     >Data limite de conclusão</label
                   >
                 </div>
               </div>
             </div>
+
+            <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="text" class="form-control" name="name" />
+              <input type="text" class="form-control" name="name" value="<%= user.nome %>" />
               <label class="form-label" for="name">Nome cliente</label>
             </div>
+
+            <!-- Password input -->
             <div class="form-outline mb-4">
-              <textarea
-                type="text"
-                class="form-control"
-                name="descricao"
-              ></textarea>
+              <textarea type="text" class="form-control" name="descricao" value="<%= user.descricao %>" ></textarea>
               <label class="form-label" for="descricao">Descrição</label>
             </div>
+
+            <!-- Phone input -->
             <div class="form-outline mb-4">
-              <input
-                type="tel"
-                class="form-control"
-                name="phone"
-              />
+              <input type="tel" class="form-control" name="phone" value="<%= user.telefone %>"/>
               <label class="form-label" for="phone">Telefone</label>
             </div>
 
             <div class="form-outline mb-4">
               <legend>Status</legend>
-              <input
-                type="radio"
-                name="status"
-                value="Pendente"
-                id="Pendente"
-              />
+              <input type="radio" name="status" value="Pendente" id="Pendente">
               <label class="form-label" for="Pendente">Pendente</label>
-
-              <input
-                type="radio"
-                name="status"
-                value="Faturado"
-                id="Faturado"
-              />
+            
+              <input type="radio" name="status" value="Faturado" id="Faturado">
               <label class="form-label" for="Faturado">Faturado</label>
-
-              <input
-                type="radio"
-                name="status"
-                value="Cancelado"
-                id="Cancelado"
-              />
+            
+              <input type="radio" name="status" value="Cancelado" id="Cancelado">
               <label class="form-label" for="Cancelado">Cancelado</label>
-
-              <input
-                type="radio"
-                name="status"
-                value="Finalizado"
-                id="Finalizado"
-                required
-              />
+            
+              <input type="radio" name="status" value="Finalizado" id="Finalizado" required>
               <label class="form-label" for="Finalizado">Finalizado</label>
             </div>
+
+            <!-- Image input -->
             <div class="form-outline mb-4">
               <input
                 type="file"
                 class="form-control form-control-lg"
                 name="image"
-                required
               />
-              <label class="form-label" for="image" required>Imagem</label>
+              <label class="form-label" for="image">Imagem</label>
+              <img src="/<%= user.image %>" width="100" class="img-thumbnail"/>
             </div>
-            <button
+            <input type="hidden" name="old_image" value="<%= user.image %>"/>
+            <!-- Submit button -->
+            <input
               type="submit"
               name="submit"
-              value="Add User"
-              class="btn btn-primary btn-block mb-4"
+              value="Editar Serviço"
+              class="btn btn-primary btn-success mb-4"
             >
-              Cadastrar Serviço
-            </button>
           </form>
         </div>
       </div>

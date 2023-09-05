@@ -29,7 +29,8 @@
               <th>Data chamada</th>
               <th>Data conclusão</th>
               <th>Imagem</th>
-              <th>Completar</th>
+              <th>Status</th>
+              <th>Deletar ou Editar</th>
             </tr>
           </thead>
 
@@ -43,11 +44,15 @@
               <td><%= row.dataIn %></td>
               <td><%= row.dataOut %></td>
               <td>
-                <img src="<%= row.image %> " width="100" class="img-thumbnail" />
+                <img src="<%= row.image %>" width="100" class="img-thumbnail" />
               </td>
+              <td><%= row.status %></td>
               <td>
-                <a href="/delete/<%= row._id %>" class="text-success"
-                  ><i class="fas fa-check fa-lg mx-1"></i
+                <a href="/delete/<%= row._id %>" class="text-danger"
+                  ><i class="fas fa-trash fa-lg mx-4"></i
+                ></a>
+                <a href="/edit/<%= row._id %>" class="text-dark"
+                  ><i class="fas fa-edit fa-lg mx-4"></i
                 ></a>
               </td>
             </tr>
