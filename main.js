@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const db = require("./database/db");
 const app = express();
@@ -30,7 +29,7 @@ app.use(express.static("uploads"));
 
 app.set("view engine", "ejs");
 
-app.use("", require("./controller/routesController"));
+app.use("", require("./routers/routers"));
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);

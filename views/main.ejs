@@ -1,0 +1,53 @@
+<%- include('layout/header') %>
+
+<div class="container">
+  <% if (message) { %>
+    <div
+      class="alert alert-desmissible fade show alert-<%= message.type %>"
+      role="alert"
+    >
+      <button
+        class="btn-close"
+        type="button"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong><%= message.message %></strong>
+    </div>
+    <% } %>
+  <div class="row mb-2">
+    <% users.forEach((row, index) => { %>
+    <div class="col-md-6" >
+      <div
+        style="background-color: antiquewhite;"
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          
+          <h3 class="mb-0"><%= row.nome %></h3>
+          <div class="mb-1 text-muted"><%= row.tempo %></div>
+          <p class="mb-auto"><%= row.descricao %></p>
+          <div class="mb-1 text-muted">R$ <%= row.preco %></div><div class="text-center">
+            <a href="/delete/<%= row._id %>" class="text-danger"
+              ><i class="fas fa-trash fa-lg mx-4"></i
+            ></a>
+            <a href="/edit/<%= row._id %>" class="text-dark"
+              ><i class="fas fa-edit fa-lg mx-4"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            src="<%= row.image %>"
+            alt=""
+            width="200"
+            height="250"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+<%- include('layout/footer') %>
